@@ -1,19 +1,25 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useRouter } from "next/router";
 import { Icon } from "@iconify/react";
-import { useTheme } from "next-themes";
 
 const Navbar = ({ links }: { links: any[] }) => {
   const router = useRouter();
-  const { resolvedTheme, setTheme } = useTheme();
 
   return (
     <header className="py-4 px-6 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
       <div className="flex flex-none h-full">
         <div className="flex flex-1 items-center">
-          <Link href="/">
-            <a className="dark:text-slate-200 font-bold">Rice Ball</a>
+          <Link href="/" passHref>
+            <a className="flex">
+              <Image
+                src="/logo-text.png"
+                alt="ui challenge logo"
+                width={150}
+                height={40}
+              />
+            </a>
           </Link>
         </div>
         <div className="hidden lg:flex items-center">
@@ -30,19 +36,6 @@ const Navbar = ({ links }: { links: any[] }) => {
                   </a>
                 </Link>
               ))}
-              {resolvedTheme === "dark" ? (
-                <Icon
-                  icon="heroicons-outline:sun"
-                  className="text-slate-200 text-lg"
-                  onClick={() => setTheme("light")}
-                />
-              ) : (
-                <Icon
-                  icon="heroicons-outline:moon"
-                  className="text-slate-800 text-lg"
-                  onClick={() => setTheme("dark")}
-                />
-              )}
             </nav>
           )}
         </div>

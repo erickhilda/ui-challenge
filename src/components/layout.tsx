@@ -7,17 +7,15 @@ interface Props {
 }
 
 const links = [
-  { href: "/topping", label: "topping" },
-  { href: "/ketchup", label: "ketchup" },
+  { href: "/about", label: "about" },
+  { href: "/contact", label: "contact" },
 ];
 
 const Layout = ({ title, children }: Props) => (
   <>
-    {title ? (
-      <Head>
-        <title>Rice Ball | {title}</title>
-      </Head>
-    ) : null}
+    <Head>
+      <title>UI Challenge {title ? `| ${title}` : null}</title>
+    </Head>
 
     <Navbar links={links} />
 
